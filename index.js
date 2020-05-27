@@ -80,13 +80,14 @@ client.on('message', async (message) => {
         break;
       case 'help':
       case 'intro':
+      case 'ping':
         client.commands.get(command).execute(message, args);
         break;
       case 'clear':
         past_players_data = [];
         break;
       default:
-        message.channel.send('```diff\n- Comando inválido!\n+ Digite !help para saber sobre os comandos permitidos.```');
+        message.channel.send('```diff\n- Comando inválido!\n+ Digite !help para saber sobre quais comandos são permitidos.```');
     }
   } catch (error) {
     console.error(error);
