@@ -1,0 +1,245 @@
+{
+    "10": [
+        "EP 10",
+        "ESTÁBULO 7",
+        "OFICINA 6",
+        "FERREIRO 7",
+        "MERCADO 11"
+    ],
+    "12": [
+        "EP 12",
+        "QUARTEL 9",
+        "ESTÁBULO 8",
+        "MURALHA 13",
+        "OFICINA 7",
+        "MERCADO 12"
+    ],
+    "13": [
+        "MINA 15",
+        "FAZENDA 16",
+        "ARMAZÉM 15"
+    ],
+    "15": [
+        "MERCADO 13",
+        "MINA 16",
+        "MURALHA 14"
+    ],
+    "17": [
+        "ESTÁBULO 10",
+        "MURALHA 15",
+        "OFICINA 9"
+    ],
+    "18": [
+        "EP 14",
+        "MERCADO 14"
+    ],
+    "19": [
+        "MINA 17",
+        "FAZENDA 18",
+        "ARMAZÉM 17"
+    ],
+    "20": [
+        "QUARTEL 12",
+        "FERREIRO 11",
+        "MURALHA 16"
+    ],
+    "21": [
+        "EP 15",
+        "ESTÁBULO 11",
+        "MERCADO 15"
+    ],
+    "22": [
+        "FAZENDA 19",
+        "ARMAZÉM 18",
+        "MINA 18"
+    ],
+    "25": [
+        "ESTÁBULO 12",
+        "OFICINA 11",
+        "MURALHA 17"
+    ],
+    "26": [
+        "EP 16",
+        "MERCADO 16"
+    ],
+    "27": [
+        "FAZENDA 20",
+        "ARMAZÉM 19",
+        "MINA 19"
+    ],
+    "29": [
+        "ESTÁBULO 13",
+        "MURALHA 18"
+    ],
+    "31": [
+        "EP 17",
+        "MERCADO 17"
+    ],
+    "32": [
+        "FAZENDA 21",
+        "ARMAZÉM 20",
+        "MINA 20"
+    ],
+    "34": [
+        "QUARTEL 15",
+        "FERREIRO 14"
+    ],
+    "36": [
+        "ESTÁBULO 14",
+        "MURALHA 19"
+    ],
+    "37": [
+        "EP 18",
+        "MERCADO 18"
+    ],
+    "38": [
+        "FAZENDA 22",
+        "ARMAZÉM 21",
+        "MINA 21"
+    ],
+    "41": [
+        "FERREIRO 15"
+    ],
+    "42": [
+        "QUARTEL 16"
+    ],
+    "43": [
+        "ESTÁBULO 15",
+        "MURALHA 20"
+    ],
+    "44": [
+        "EP 19",
+        "MERCADO 19"
+    ],
+    "46": [
+        "FAZENDA 23",
+        "MINA 22"
+    ],
+    "49": [
+        "QUARTEL 17",
+        "FERREIRO 16"
+    ],
+    "51": [
+        "ESTÁBULO 16",
+        "OFICINA 15"
+    ],
+    "53": [
+        "EP 20",
+        "MERCADO 20"
+    ],
+    "55": [
+        "FAZENDA 24",
+        "MINA 23"
+    ],
+    "58": [
+        "FERREIRO 17"
+    ],
+    "59": [
+        "QUARTEL 18"
+    ],
+    "62": [
+        "ESTÁBULO 17"
+    ],
+    "64": [
+        "EP 21",
+        "MERCADO 21"
+    ],
+    "66": [
+        "FAZENDA 25",
+        "MINA 24"
+    ],
+    "71": [
+        "QUARTEL 19",
+        "FERREIRO 18"
+    ],
+    "74": [
+        "ESTÁBULO 18"
+    ],
+    "77": [
+        "EP 22",
+        "MERCADO 22"
+    ],
+    "80": [
+        "FAZENDA 26",
+        "MINA 25"
+    ],
+    "84": [
+        "FERREIRO 19"
+    ],
+    "85": [
+        "QUARTEL 20"
+    ],
+    "88": [
+        "ESTÁBULO 19"
+    ],
+    "92": [
+        "EP 23",
+        "MERCADO 23"
+    ],
+    "95": [
+        "FAZENDA 27",
+        "MINA 26"
+    ],
+    "101": [
+        "FERREIRO 20"
+    ],
+    "102": [
+        "QUARTEL 21"
+    ],
+    "107": [
+        "ESTÁBULO 20"
+    ],
+    "110": [
+        "EP 24",
+        "MERCADO 24"
+    ],
+    "115": [
+        "FAZENDA 28",
+        "MINA 27"
+    ],
+    "123": [
+        "QUARTEL 22"
+    ],
+    "133": [
+        "EP 25",
+        "MERCADO 25"
+    ],
+    "137": [
+        "FAZENDA 29",
+        "MINA 28"
+    ],
+    "147": [
+        "QUARTEL 23"
+    ],
+    "159": [
+        "EP 26"
+    ],
+    "165": [
+        "FAZENDA 30",
+        "MINA 29"
+    ],
+    "177": [
+        "QUARTEL 24"
+    ],
+    "191": [
+        "EP 27"
+    ],
+    "198": [
+        "MINA 30"
+    ],
+    "212": [
+        "QUARTEL 25"
+    ],
+    "229": [
+        "EP 28"
+    ],
+    "274": [
+        "EP 29"
+    ],
+    "330": [
+        "EP 30"
+    ],
+    "512": [
+        "ACADEMIA 1"
+    ]
+}
