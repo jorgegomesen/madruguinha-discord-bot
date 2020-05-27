@@ -22,16 +22,16 @@ module.exports = {
 
             switch (building) {
                 case 'ferreiro18':
-                    dispatcher = connection.play(__dirname + '/alerts/ferreiro18.mp3');
+                    dispatcher = connection.play('../alerts/ferreiro18.mp3');
                     break;
                 case 'ferreiro19':
-                    dispatcher = connection.play(__dirname + '/alerts/ferreiro19.mp3');
+                    dispatcher = connection.play('../alerts/ferreiro19.mp3');
                     break;
                 case 'academia':
-                    dispatcher = connection.play(__dirname + '/alerts/academia.mp3');
+                    dispatcher = connection.play('../alerts/academia.mp3');
                     break;
                 case 'demolido':
-                    dispatcher = connection.play(__dirname + '/alerts/demolido.mp3');
+                    dispatcher = connection.play('../alerts/demolido.mp3');
             }
 
             dispatcher.on('finish', () => voiceChannel.leave());
