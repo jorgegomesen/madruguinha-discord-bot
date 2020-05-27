@@ -34,7 +34,7 @@ module.exports = {
                     dispatcher = connection.play('../alerts/demolido.mp3');
             }
 
-            dispatcher.on('finish', () => voiceChannel.leave());
+            // dispatcher.on('finish', () => voiceChannel.leave());
             dispatcher.on('error', () => message.channel.send('```diff\n- Não foi possível fazer o alerta!```'));
         }).catch(e => {
             // Oh no, it errored! Let's log it to console :)

@@ -3,7 +3,10 @@ module.exports = {
     description: 'Watch speed ranking',
     execute(message, watch_url, current_players_data, past_players_data) {
         const play_alert_module = require('./alert');
+        const records_per_history = 50;
+
         let buildings = require('../buildings.json');
+
 
         function updatePastPlayersData() {
             let keys = Object.keys(current_players_data);
@@ -18,7 +21,7 @@ module.exports = {
         }
 
         function updatePastPlayersHistory(key, action) {
-            if (past_players_data[key].history.length > 20)
+            if (past_players_data[key].history.length > records_per_history)
                 past_players_data[key].history.shift();
             past_players_data[key].history.push(action);
         }

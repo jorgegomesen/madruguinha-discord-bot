@@ -70,7 +70,7 @@ client.on('message', async (message) => {
         while (is_watching) {
           current_players_data = await players_data.getFormattedData();
           Command.execute(message, param_1, current_players_data, past_players_data);
-          await wait(20000);
+          await wait(15000);
         }
 
         message.channel.send('```diff\n+ Monitoramento encerrado!```');
