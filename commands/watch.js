@@ -20,6 +20,10 @@ module.exports = {
             }
         }
 
+        function getPlayerHistory(key){
+            return past_players_data[key].history;
+        }
+
         function updatePastPlayersHistory(key, action) {
             if (past_players_data[key].history.length > records_per_history)
                 past_players_data[key].history.shift();
@@ -64,7 +68,44 @@ module.exports = {
                     }
 
                 if (buildings[diff]) {
-                    let string_aux = '[' + buildings[diff].join(' ou ') + ']';
+                    let buildings_possibilites = buildings[diff];
+                    let bp_len = buildings_possibilites.length;
+                    let better_possibilities = [];
+                    let building_str = '';
+                    let building_level = 0;
+                    let bp_array = null;
+                    let player_history = getPlayerHistory(key);
+                    let ph_len = player_history.length;
+                    let found_lower_level = true;
+                    let better_possibilitie = 0;
+
+                    for(let index = 0; index < bp_len; index++){
+                        bp_array = buildings_possibilites[index].spli(' ');
+                        building_str = bp_array[0];
+                        building_level = parseInt(bp_array[1]);
+                        better_possibilities[index] = 0;
+
+                        while(found_lower_level){
+                            found_lower_level = false;
+                            for(let it = 0; it < ph_len; it++){
+                                if(player_history[it].indexOf(`${building_str} ${--building_level}`) !== -1){
+                                    found_lower_level = true;
+                                    break;
+                                }
+                            }
+                            better_possibilities[index]++;
+                        }
+                    }
+
+                    for(let index = 0; index < bp_len - 1; index++){
+                        if(better_possibilities[index+1] > better_possibilities[better_possibilitie])
+                            better_possibilitie = index+1;
+                    }
+
+                    if(better_possibilities[better_possibilitie])
+                        buildings_possibilites = buildings_possibilites[better_possibilitie].split('');
+
+                    let string_aux = '[' + buildings_possibilites.join(' ou ') + ']';
 
                     final_string += demolished ? '' : string;
                     final_string += demolish_css + string_aux + '\n';
