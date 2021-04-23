@@ -43,7 +43,6 @@ module.exports = {
             let ph_len = player_history.length;
 
             for (let index = 0; index < bp_len; index++) {
-                console.log(cur_bp)
                 bp_array = cur_bp[index].split(' ');
                 building_str = bp_array[0];
                 building_level = parseInt(bp_array[1]);

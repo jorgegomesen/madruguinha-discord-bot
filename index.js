@@ -18,7 +18,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const PlayersData = require('./data');
-const prefix = '!';
+const prefix = '+';
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
