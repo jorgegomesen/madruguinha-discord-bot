@@ -30,43 +30,50 @@ module.exports = {
             past_players_data[key].history.push(action);
         }
 
+
         function getUpdatedPlayerHistory(diff, key){
             let cur_bp = buildings[diff];
+            let bp_len, bp_array, building_str, building_level;
+            let hist_build_str, hist_build_level;
 
-            if(!cur_bp)
-                return cur_bp;
+            if(!cur_bp || !(bp_len = cur_bp.length))
+                return null;
 
-            let bp_len = cur_bp.length;
             let player_history = getPlayerHistory(key);
             let ph_len = player_history.length;
 
             for (let index = 0; index < bp_len; index++) {
+                console.log(cur_bp)
                 bp_array = cur_bp[index].split(' ');
                 building_str = bp_array[0];
                 building_level = parseInt(bp_array[1]);
 
                 for (let it = 0; it < ph_len; it++) {
-                    cur_build_str = player_history[it].match(new RegExp(`(${building_str} )\\d*`, 'g'));
+                    /* get the line building only if it has one building at the line */
+                    /* e.g. [Muralha 15]  */
+                    hist_build_str = player_history[it].match(new RegExp(`(\\[)(${building_str} )(\\d*)(\\])`, 'g'));
 
-                    if(cur_build_str === 'MINA')
-                        continue;
+                    if (hist_build_str != null) {
+                        hist_build_str = hist_build_str[0];
+                        /* remove brackets from building string
+                        * e.g. [Muralha 13] => Muralha 13
+                        * */
+                        hist_build_str = hist_build_str.substr(1, hist_build_str.length-2);
 
-                    if (cur_build_str != null) {
-                        cur_build_level = parseInt(cur_build_str[0].split(' ')[1]);
-                        if (cur_build_level > building_level){
+                        /* There are three type of mines, so can't exclude them from possibilites */
+                        if(hist_build_str.indexOf('MINA') != -1)
+                            continue;
+
+                        hist_build_level = parseInt(hist_build_str.split(' ')[1]);
+
+                        /* Remove building possibilitie that are already in the history but with a greater level */
+                        if (hist_build_level >= building_level){
                             cur_bp.splice(index, 1);
                             index--;
                             bp_len--;
                             break;
                         }
                     }
-
-                    if (player_history[it].indexOf(`${building_str} ${building_level}`) != -1) {
-                        cur_bp.splice(index, 1);
-                        index--;
-                        bp_len--;
-                    }
-
                 }
             }
 
@@ -134,10 +141,10 @@ module.exports = {
                         while (found_lower_level) {
                             found_lower_level = false;
                             for (let it = 0; it < ph_len; it++) {
-                             /*   cur_build_str = player_history[it].match(new RegExp(`(${building_str} )\\d*`, 'g'));
+                             /*   hist_build_str = player_history[it].match(new RegExp(`(${building_str} )\\d*`, 'g'));
 
-                                if (cur_build_str != null) {
-                                    cur_build_level = parseInt(cur_build_str[0].split(' ')[1]);
+                                if (hist_build_str != null) {
+                                    cur_build_level = parseInt(hist_build_str[0].split(' ')[1]);
                                     if (cur_build_level > building_level)
                                         break;
                                 }*/
