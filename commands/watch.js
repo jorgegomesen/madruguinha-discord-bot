@@ -30,6 +30,49 @@ module.exports = {
             past_players_data[key].history.push(action);
         }
 
+        function getUpdatedPlayerHistory(diff, key){
+            let cur_bp = buildings[diff];
+
+            if(!cur_bp)
+                return cur_bp;
+
+            let bp_len = cur_bp.length;
+            let player_history = getPlayerHistory(key);
+            let ph_len = player_history.length;
+
+            for (let index = 0; index < bp_len; index++) {
+                bp_array = cur_bp[index].split(' ');
+                building_str = bp_array[0];
+                building_level = parseInt(bp_array[1]);
+
+                for (let it = 0; it < ph_len; it++) {
+                    cur_build_str = player_history[it].match(new RegExp(`(${building_str} )\\d*`, 'g'));
+
+                    if(cur_build_str === 'MINA')
+                        continue;
+
+                    if (cur_build_str != null) {
+                        cur_build_level = parseInt(cur_build_str[0].split(' ')[1]);
+                        if (cur_build_level > building_level){
+                            cur_bp.splice(index, 1);
+                            index--;
+                            bp_len--;
+                            break;
+                        }
+                    }
+
+                    if (player_history[it].indexOf(`${building_str} ${building_level}`) != -1) {
+                        cur_bp.splice(index, 1);
+                        index--;
+                        bp_len--;
+                    }
+
+                }
+            }
+
+            return cur_bp.length ? cur_bp : null;
+        }
+
         function main() {
             let final_string = '';
             let string;
@@ -67,7 +110,7 @@ module.exports = {
                             play_alert_module.execute(message, 'academia');
                     }
 
-                let buildings_possibilites = buildings[diff];
+                let buildings_possibilites = getUpdatedPlayerHistory(diff, key);
 
                 if (buildings_possibilites) {
                     let bp_len = buildings_possibilites.length;
@@ -91,13 +134,13 @@ module.exports = {
                         while (found_lower_level) {
                             found_lower_level = false;
                             for (let it = 0; it < ph_len; it++) {
-                                cur_build_str = player_history[it].match(new RegExp(`(${building_str} )\\d*`, 'g'));
+                             /*   cur_build_str = player_history[it].match(new RegExp(`(${building_str} )\\d*`, 'g'));
 
                                 if (cur_build_str != null) {
                                     cur_build_level = parseInt(cur_build_str[0].split(' ')[1]);
                                     if (cur_build_level > building_level)
                                         break;
-                                }
+                                }*/
 
                                 if (player_history[it].indexOf(`${building_str} ${building_level - 1}`) != -1) {
                                     found_lower_level = true;

@@ -1,6 +1,6 @@
 {
   "name": "madruguinha-bot",
-  "version": "1.3",
+  "version": "1.5",
   "description": "A bot for watch players ranking progress",
   "main": "node index.js",
   "scripts": {
