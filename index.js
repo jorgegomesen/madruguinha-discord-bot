@@ -1,17 +1,18 @@
 /*
 /** Manter bot ativo
 */
-const http = require('http');
-const express = require('express');
-const app = express();
-app.get("/", (request, response) => {
-    console.log(Date.now() + " Ping Received");
-    response.sendStatus(200);
-});
-app.listen(process.env.PORT);
-setInterval(() => {
-    http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 280000);
+// const http = require('http');
+// const express = require('express');
+// const app = express();
+// app.get("/", (request, response) => {
+//     console.log(Date.now() + " Ping Received");
+//     response.sendStatus(200);
+// });
+// app.listen(process.env.PORT);
+// setInterval(() => {
+//     http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+// }, 280000);
+/**/
 
 
 const fs = require('fs');
@@ -96,6 +97,7 @@ client.on('message', async (message) => {
 });
 
 client.login(process.env.TOKEN);
+// client.login('NzEzNzQ0MTY0MDgwMDU4NDk4.XskkDQ.6WS3V36_aT_srQkpRVJmIXLa460');
 
 function wait(ms) {
     return new Promise((resolve, reject) => setTimeout(resolve, ms));

@@ -20,7 +20,7 @@ module.exports = {
             }
         }
 
-        function getPlayerHistory(key){
+        function getPlayerHistory(key) {
             return past_players_data[key].history;
         }
 
@@ -67,8 +67,9 @@ module.exports = {
                             play_alert_module.execute(message, 'academia');
                     }
 
-                if (buildings[diff]) {
-                    let buildings_possibilites = buildings[diff];
+                let buildings_possibilites = buildings[diff];
+
+                if (buildings_possibilites) {
                     let bp_len = buildings_possibilites.length;
                     let better_possibilities = [];
                     let building_str = '';
@@ -79,33 +80,45 @@ module.exports = {
                     let found_lower_level = true;
                     let better_possibilitie = 0;
 
-                    for(let index = 0; index < bp_len; index++){
-                        bp_array = buildings_possibilites[index].spli(' ');
+                    /* Choose the best option for building */
+                    for (let index = 0; index < bp_len; index++) {
+                        bp_array = buildings_possibilites[index].split(' ');
                         building_str = bp_array[0];
                         building_level = parseInt(bp_array[1]);
                         better_possibilities[index] = 0;
 
-                        while(found_lower_level){
+                        /* how many lower levels of a building are there in the history */
+                        while (found_lower_level) {
                             found_lower_level = false;
-                            for(let it = 0; it < ph_len; it++){
-                                if(player_history[it].indexOf(`${building_str} ${--building_level}`) !== -1){
+                            for (let it = 0; it < ph_len; it++) {
+                                cur_build_str = player_history[it].match(new RegExp(`(${building_str} )\\d*`, 'g'));
+
+                                if (cur_build_str != null) {
+                                    cur_build_level = parseInt(cur_build_str[0].split(' ')[1]);
+                                    if (cur_build_level > building_level)
+                                        break;
+                                }
+
+                                if (player_history[it].indexOf(`${building_str} ${building_level - 1}`) != -1) {
                                     found_lower_level = true;
+                                    better_possibilities[index]++;
                                     break;
                                 }
                             }
-                            better_possibilities[index]++;
+                            building_level--;
                         }
                     }
 
-                    for(let index = 0; index < bp_len - 1; index++){
-                        if(better_possibilities[index+1] > better_possibilities[better_possibilitie])
-                            better_possibilitie = index+1;
+                    for (let index = 0; index < bp_len - 1; index++) {
+                        if (better_possibilities[index + 1] > better_possibilities[better_possibilitie])
+                            better_possibilitie = index + 1;
                     }
 
-                    if(better_possibilities[better_possibilitie])
-                        buildings_possibilites = buildings_possibilites[better_possibilitie].split('');
+                    /* is there a possibilitie with more than 0 occurencies */
+                    if (better_possibilities[better_possibilitie])
+                        buildings_possibilites = [buildings_possibilites[better_possibilitie]];
 
-                    let string_aux = '[' + buildings_possibilites.join(' ou ') + ']';
+                    let string_aux = `[${buildings_possibilites.join(' ou ')}]`;
 
                     final_string += demolished ? '' : string;
                     final_string += demolish_css + string_aux + '\n';
