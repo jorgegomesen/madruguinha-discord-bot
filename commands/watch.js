@@ -4,9 +4,8 @@ module.exports = {
     execute(message, watch_url, current_players_data, past_players_data) {
         const play_alert_module = require('./alert');
         const records_per_history = 50;
-
-        let buildings = require('../buildings.json');
-
+        const server_id = message.channel.guild.id;
+        const buildings = require('../buildings.json');
 
         function updatePastPlayersData() {
             let keys = Object.keys(current_players_data);
@@ -31,12 +30,12 @@ module.exports = {
         }
 
 
-        function getUpdatedPlayerHistory(diff, key){
+        function getUpdatedPlayerHistory(diff, key) {
             let cur_bp = buildings[diff];
             let bp_len, bp_array, building_str, building_level;
             let hist_build_str, hist_build_level;
 
-            if(!cur_bp || !(bp_len = cur_bp.length))
+            if (!cur_bp || !(bp_len = cur_bp.length))
                 return null;
 
             let player_history = getPlayerHistory(key);
@@ -57,16 +56,16 @@ module.exports = {
                         /* remove brackets from building string
                         * e.g. [Muralha 13] => Muralha 13
                         * */
-                        hist_build_str = hist_build_str.substr(1, hist_build_str.length-2);
+                        hist_build_str = hist_build_str.substr(1, hist_build_str.length - 2);
 
                         /* There are three type of mines, so can't exclude them from possibilites */
-                        if(hist_build_str.indexOf('MINA') != -1)
+                        if (hist_build_str.indexOf('MINA') != -1)
                             continue;
 
                         hist_build_level = parseInt(hist_build_str.split(' ')[1]);
 
                         /* Remove building possibilitie that are already in the history but with a greater level */
-                        if (hist_build_level >= building_level){
+                        if (hist_build_level >= building_level) {
                             cur_bp.splice(index, 1);
                             index--;
                             bp_len--;
@@ -140,13 +139,13 @@ module.exports = {
                         while (found_lower_level) {
                             found_lower_level = false;
                             for (let it = 0; it < ph_len; it++) {
-                             /*   hist_build_str = player_history[it].match(new RegExp(`(${building_str} )\\d*`, 'g'));
+                                /*   hist_build_str = player_history[it].match(new RegExp(`(${building_str} )\\d*`, 'g'));
 
-                                if (hist_build_str != null) {
-                                    cur_build_level = parseInt(hist_build_str[0].split(' ')[1]);
-                                    if (cur_build_level > building_level)
-                                        break;
-                                }*/
+                                   if (hist_build_str != null) {
+                                       cur_build_level = parseInt(hist_build_str[0].split(' ')[1]);
+                                       if (cur_build_level > building_level)
+                                           break;
+                                   }*/
 
                                 if (player_history[it].indexOf(`${building_str} ${building_level - 1}`) != -1) {
                                     found_lower_level = true;

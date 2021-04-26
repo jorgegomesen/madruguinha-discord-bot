@@ -28,7 +28,7 @@ const commands_files = fs.readdirSync(__dirname + '/commands/').filter(file => f
 
 var past_players_data = [];
 var current_players_data = [];
-var is_watching = null;
+var active_servers = [];
 
 for (const file of commands_files) {
     const command = require(__dirname + `/commands/${file}`);
@@ -36,7 +36,6 @@ for (const file of commands_files) {
 }
 
 client.once('ready', () => {
-    console.log('I\'m online!');
     console.log('I\'m online!');
 });
 
@@ -46,31 +45,42 @@ client.on('message', async (message) => {
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
+    const server_id = message.channel.guild.id;
+
+    console.log(`O comando ${command} foi executado no servidor ${message.channel.guild.name} por ${message.author.username}`);
+
+    /*if(!current_players_data[server_id])
+        current_players_data[server_id] = [];
+
+    if(!past_players_data[server_id])
+        past_players_data[server_id] = [];*/
 
     try {
         switch (command) {
             case 'watch':
-                var param_1 = args[0] ? args[0] : null;
-                var Command = client.commands.get(command);
+                let param_1 = args[0] ? args[0] : null;
+                let Command = client.commands.get(command);
+                let is_watching = true;
 
                 if (param_1 === 'stop') {
                     is_watching = false;
+                    active_servers[server_id] = false;
                     break;
                 }
+
+                active_servers[server_id] = true;
 
                 if (!param_1 || !/(https:).*(guest.php).*/g.test(param_1.toString())) {
-                    message.channel.send('```diff\n- Não foi especificada uma url válida para página de ranking.```');
+                    await message.channel.send('```diff\n- Não foi especificada uma url válida para página de ranking.```');
                     break;
                 }
-
-                is_watching = true;
 
                 let players_data = new PlayersData(param_1);
 
-                while (is_watching) {
+                while (is_watching && active_servers[server_id]) {
                     current_players_data = await players_data.getFormattedData();
                     Command.execute(message, param_1, current_players_data, past_players_data);
-                    await wait(10000);
+                    await wait(5000);
                 }
 
                 await message.channel.send('```diff\n+ Monitoramento encerrado!```');
