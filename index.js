@@ -1,33 +1,34 @@
-/*
-/** Manter bot ativo
-*/
-// const http = require('http');
-// const express = require('express');
-// const app = express();
-// app.get("/", (request, response) => {
-//     console.log(Date.now() + " Ping Received");
-//     response.sendStatus(200);
-// });
-// app.listen(process.env.PORT);
-// setInterval(() => {
-//     http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-// }, 280000);
-/**/
-
-
 const fs = require('fs');
 const Discord = require('discord.js');
 const PlayersData = require('./data');
-const prefix = '+';
-
 const client = new Discord.Client();
+const prefix = '#';
+
 client.commands = new Discord.Collection();
+
+var http = require('http');
+http.createServer(function (req, res) {
+    res.write("I'm alive");
+    res.end();
+}).listen(8080);
+
+client.on('ready', () => {
+    console.log('Your Bot is now Online.')
+
+    let activities = [`gang shit`, `with the gang`, `with the gang`], i = 0;
+
+    setInterval(() => client.user.setActivity(`${activities[i++ % activities.length]}`, {
+        type: "STREAMING",
+        url: "https://www.youtube.com/watch?v=DWcJFNfaw9c"
+    }), 5000);
+});
+
 
 const commands_files = fs.readdirSync(__dirname + '/commands/').filter(file => file.endsWith('.js'));
 
-let past_players_data = [];
-let current_players_data = [];
-let is_watching = null;
+var past_players_data = [];
+var current_players_data = [];
+var is_watching = null;
 
 for (const file of commands_files) {
     const command = require(__dirname + `/commands/${file}`);
@@ -46,13 +47,11 @@ client.on('message', async (message) => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    // if (!client.commands.has(command)) return;
-
     try {
         switch (command) {
             case 'watch':
-                let param_1 = args[0] ? args[0] : null;
-                let Command = client.commands.get(command);
+                var param_1 = args[0] ? args[0] : null;
+                var Command = client.commands.get(command);
 
                 if (param_1 === 'stop') {
                     is_watching = false;
@@ -74,7 +73,7 @@ client.on('message', async (message) => {
                     await wait(10000);
                 }
 
-                message.channel.send('```diff\n+ Monitoramento encerrado!```');
+                await message.channel.send('```diff\n+ Monitoramento encerrado!```');
                 break;
             case 'history':
                 client.commands.get(command).execute(message, args, past_players_data);
@@ -88,16 +87,15 @@ client.on('message', async (message) => {
                 past_players_data = [];
                 break;
             default:
-                message.channel.send('```diff\n- Comando inválido!\n+ Digite !help para saber sobre quais comandos são permitidos.```');
+                await message.channel.send('```diff\n- Comando inválido!\n+ Digite !help para saber sobre quais comandos são permitidos.```');
         }
     } catch (error) {
         console.error(error);
-        message.reply('there was an error trying to execute that command!');
+        await message.reply('Erro ao executar o comando!');
     }
 });
 
 client.login(process.env.TOKEN);
-// client.login('NzEzNzQ0MTY0MDgwMDU4NDk4.XskkDQ.6WS3V36_aT_srQkpRVJmIXLa460');
 
 function wait(ms) {
     return new Promise((resolve, reject) => setTimeout(resolve, ms));
