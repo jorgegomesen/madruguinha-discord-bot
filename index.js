@@ -67,11 +67,11 @@ client.on('message', async (message) => {
                     active_servers[server_id] = false;
                     break;
                 }
-
+                
                 active_servers[server_id] = true;
 
                 if (!param_1 || !/(https:).*(guest.php).*/g.test(param_1.toString())) {
-                    await message.channel.send('```diff\n- Não foi especificada uma url válida para página de ranking.```');
+                    message.channel.send('```diff\n- Not a valid url.```');
                     break;
                 }
 
@@ -83,7 +83,7 @@ client.on('message', async (message) => {
                     await wait(5000);
                 }
 
-                await message.channel.send('```diff\n+ Monitoramento encerrado!```');
+                message.channel.send('```diff\n+ Speed monitoring is over!```');
                 break;
             case 'history':
                 client.commands.get(command).execute(message, args, past_players_data);
@@ -97,11 +97,11 @@ client.on('message', async (message) => {
                 past_players_data = [];
                 break;
             default:
-                await message.channel.send('```diff\n- Comando inválido!\n+ Digite !help para saber sobre quais comandos são permitidos.```');
+                message.channel.send('```diff\n- Invalid command!\n+ Type #help to know all the allowed commands.```');
         }
     } catch (error) {
         console.error(error);
-        await message.reply('Erro ao executar o comando!');
+        message.reply('Error executing that command!');
     }
 });
 

@@ -1,245 +1,245 @@
 {
     "10": [
-        "EP 10",
-        "ESTÁBULO 7",
-        "OFICINA 6",
-        "FERREIRO 7",
-        "MERCADO 11"
+        "HQ 10",
+        "STABLE 7",
+        "WORKSHOP 6",
+        "SMITHY 7",
+        "MARKET 11"
     ],
     "12": [
-        "EP 12",
-        "QUARTEL 9",
-        "ESTÁBULO 8",
-        "MURALHA 13",
-        "OFICINA 7",
-        "MERCADO 12"
+        "HQ 12",
+        "BARRACKS 9",
+        "STABLE 8",
+        "WALL 13",
+        "WORKSHOP 7",
+        "MARKET 12"
     ],
     "13": [
-        "MINA 15",
-        "FAZENDA 16",
-        "ARMAZÉM 15"
+        "MINE 15",
+        "FARM 16",
+        "WAREHOUSE 15"
     ],
     "15": [
-        "MERCADO 13",
-        "MINA 16",
-        "MURALHA 14"
+        "MARKET 13",
+        "MINE 16",
+        "WALL 14"
     ],
     "17": [
-        "ESTÁBULO 10",
-        "MURALHA 15",
-        "OFICINA 9"
+        "STABLE 10",
+        "WALL 15",
+        "WORKSHOP 9"
     ],
     "18": [
-        "EP 14",
-        "MERCADO 14"
+        "HQ 14",
+        "MARKET 14"
     ],
     "19": [
-        "MINA 17",
-        "FAZENDA 18",
-        "ARMAZÉM 17"
+        "MINE 17",
+        "FARM 18",
+        "WAREHOUSE 17"
     ],
     "20": [
-        "QUARTEL 12",
-        "FERREIRO 11",
-        "MURALHA 16"
+        "BARRACKS 12",
+        "SMITHY 11",
+        "WALL 16"
     ],
     "21": [
-        "EP 15",
-        "ESTÁBULO 11",
-        "MERCADO 15"
+        "HQ 15",
+        "STABLE 11",
+        "MARKET 15"
     ],
     "22": [
-        "FAZENDA 19",
-        "ARMAZÉM 18",
-        "MINA 18"
+        "FARM 19",
+        "WAREHOUSE 18",
+        "MINE 18"
     ],
     "25": [
-        "ESTÁBULO 12",
-        "OFICINA 11",
-        "MURALHA 17"
+        "STABLE 12",
+        "WORKSHOP 11",
+        "WALL 17"
     ],
     "26": [
-        "EP 16",
-        "MERCADO 16"
+        "HQ 16",
+        "MARKET 16"
     ],
     "27": [
-        "FAZENDA 20",
-        "ARMAZÉM 19",
-        "MINA 19"
+        "FARM 20",
+        "WAREHOUSE 19",
+        "MINE 19"
     ],
     "29": [
-        "ESTÁBULO 13",
-        "MURALHA 18"
+        "STABLE 13",
+        "WALL 18"
     ],
     "31": [
-        "EP 17",
-        "MERCADO 17"
+        "HQ 17",
+        "MARKET 17"
     ],
     "32": [
-        "FAZENDA 21",
-        "ARMAZÉM 20",
-        "MINA 20"
+        "FARM 21",
+        "WAREHOUSE 20",
+        "MINE 20"
     ],
     "34": [
-        "QUARTEL 15",
-        "FERREIRO 14"
+        "BARRACKS 15",
+        "SMITHY 14"
     ],
     "36": [
-        "ESTÁBULO 14",
-        "MURALHA 19"
+        "STABLE 14",
+        "WALL 19"
     ],
     "37": [
-        "EP 18",
-        "MERCADO 18"
+        "HQ 18",
+        "MARKET 18"
     ],
     "38": [
-        "FAZENDA 22",
-        "ARMAZÉM 21",
-        "MINA 21"
+        "FARM 22",
+        "WAREHOUSE 21",
+        "MINE 21"
     ],
     "41": [
-        "FERREIRO 15"
+        "SMITHY 15"
     ],
     "42": [
-        "QUARTEL 16"
+        "BARRACKS 16"
     ],
     "43": [
-        "ESTÁBULO 15",
-        "MURALHA 20"
+        "STABLE 15",
+        "WALL 20"
     ],
     "44": [
-        "EP 19",
-        "MERCADO 19"
+        "HQ 19",
+        "MARKET 19"
     ],
     "46": [
-        "FAZENDA 23",
-        "MINA 22"
+        "FARM 23",
+        "MINE 22"
     ],
     "49": [
-        "QUARTEL 17",
-        "FERREIRO 16"
+        "BARRACKS 17",
+        "SMITHY 16"
     ],
     "51": [
-        "ESTÁBULO 16",
-        "OFICINA 15"
+        "STABLE 16",
+        "WORKSHOP 15"
     ],
     "53": [
-        "EP 20",
-        "MERCADO 20"
+        "HQ 20",
+        "MARKET 20"
     ],
     "55": [
-        "FAZENDA 24",
-        "MINA 23"
+        "FARM 24",
+        "MINE 23"
     ],
     "58": [
-        "FERREIRO 17"
+        "SMITHY 17"
     ],
     "59": [
-        "QUARTEL 18"
+        "BARRACKS 18"
     ],
     "62": [
-        "ESTÁBULO 17"
+        "STABLE 17"
     ],
     "64": [
-        "EP 21",
-        "MERCADO 21"
+        "HQ 21",
+        "MARKET 21"
     ],
     "66": [
-        "FAZENDA 25",
-        "MINA 24"
+        "FARM 25",
+        "MINE 24"
     ],
     "71": [
-        "QUARTEL 19",
-        "FERREIRO 18"
+        "BARRACKS 19",
+        "SMITHY 18"
     ],
     "74": [
-        "ESTÁBULO 18"
+        "STABLE 18"
     ],
     "77": [
-        "EP 22",
-        "MERCADO 22"
+        "HQ 22",
+        "MARKET 22"
     ],
     "80": [
-        "FAZENDA 26",
-        "MINA 25"
+        "FARM 26",
+        "MINE 25"
     ],
     "84": [
-        "FERREIRO 19"
+        "SMITHY 19"
     ],
     "85": [
-        "QUARTEL 20"
+        "BARRACKS 20"
     ],
     "88": [
-        "ESTÁBULO 19"
+        "STABLE 19"
     ],
     "92": [
-        "EP 23",
-        "MERCADO 23"
+        "HQ 23",
+        "MARKET 23"
     ],
     "95": [
-        "FAZENDA 27",
-        "MINA 26"
+        "FARM 27",
+        "MINE 26"
     ],
     "101": [
-        "FERREIRO 20"
+        "SMITHY 20"
     ],
     "102": [
-        "QUARTEL 21"
+        "BARRACKS 21"
     ],
     "107": [
-        "ESTÁBULO 20"
+        "STABLE 20"
     ],
     "110": [
-        "EP 24",
-        "MERCADO 24"
+        "HQ 24",
+        "MARKET 24"
     ],
     "115": [
-        "FAZENDA 28",
-        "MINA 27"
+        "FARM 28",
+        "MINE 27"
     ],
     "123": [
-        "QUARTEL 22"
+        "BARRACKS 22"
     ],
     "133": [
-        "EP 25",
-        "MERCADO 25"
+        "HQ 25",
+        "MARKET 25"
     ],
     "137": [
-        "FAZENDA 29",
-        "MINA 28"
+        "FARM 29",
+        "MINE 28"
     ],
     "147": [
-        "QUARTEL 23"
+        "BARRACKS 23"
     ],
     "159": [
-        "EP 26"
+        "HQ 26"
     ],
     "165": [
-        "FAZENDA 30",
-        "MINA 29"
+        "FARM 30",
+        "MINE 29"
     ],
     "177": [
-        "QUARTEL 24"
+        "BARRACKS 24"
     ],
     "191": [
-        "EP 27"
+        "HQ 27"
     ],
     "198": [
-        "MINA 30"
+        "MINE 30"
     ],
     "212": [
-        "QUARTEL 25"
+        "BARRACKS 25"
     ],
     "229": [
-        "EP 28"
+        "HQ 28"
     ],
     "274": [
-        "EP 29"
+        "HQ 29"
     ],
     "330": [
-        "EP 30"
+        "HQ 30"
     ],
     "512": [
-        "ACADEMIA 1"
+        "ACADEMY 1"
     ]
 }

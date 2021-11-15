@@ -5,7 +5,7 @@ module.exports = {
         let player = args.join(' ');
 
         if (!player) {
-            message.channel.send('```diff\n- Não foi informado o nick do jogador.```');
+            message.channel.send('```diff\n- In game nick wasn\'t specified.```');
             return;
         }
 
@@ -17,6 +17,6 @@ module.exports = {
             return;
         }
 
-        message.channel.send('```diff\n- Jogador não encontrado.```');
+        message.channel.send('```diff\n- Player not found.```');
     }
 }
