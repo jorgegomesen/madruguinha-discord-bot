@@ -15,11 +15,18 @@
   },
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
+    "bluebird": "^3.7.2",
+    "cheerio": "^1.0.0-rc.10",
     "discord.js": "^12.2.0",
     "express": "^4.17.1",
+    "googleapis": "^92.0.0",
+    "imap": "^0.8.19",
     "jquery": "^3.5.1",
+    "js-base64": "^3.7.2",
     "jsdom": "^16.2.2",
+    "mailparser": "^3.4.0",
+    "open": "^8.4.0",
     "ytdl-core": "^2.1.4"
   }
 }

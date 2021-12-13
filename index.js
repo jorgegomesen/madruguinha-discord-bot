@@ -49,14 +49,10 @@ client.on('message', async (message) => {
 
     console.log(`O comando ${command} foi executado no servidor ${message.channel.guild.name} por ${message.author.username}`);
 
-    /*if(!current_players_data[server_id])
-        current_players_data[server_id] = [];
-
-    if(!past_players_data[server_id])
-        past_players_data[server_id] = [];*/
-
     try {
         switch (command) {
+            case 'watch-mails':
+                break;
             case 'watch':
                 let param_1 = args[0] ? args[0] : null;
                 let Command = client.commands.get(command);
@@ -67,7 +63,7 @@ client.on('message', async (message) => {
                     active_servers[server_id] = false;
                     break;
                 }
-                
+
                 active_servers[server_id] = true;
 
                 if (!param_1 || !/(https:).*(guest.php).*/g.test(param_1.toString())) {
