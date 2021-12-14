@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const PlayersData = require('./data');
 const client = new Discord.Client();
 const prefix = '#';
+const watchIncomings = require('./commands/watch-incomings');
 
 client.commands = new Discord.Collection();
 
@@ -17,10 +18,24 @@ client.on('ready', () => {
 
     let activities = [`gang shit`, `with the gang`, `with the gang`], i = 0;
 
-    setInterval(() => client.user.setActivity(`${activities[i++ % activities.length]}`, {
-        type: "STREAMING",
-        url: "https://www.youtube.com/watch?v=DWcJFNfaw9c"
-    }), 5000);
+    setInterval(() => {
+        client.user.setActivity(`${activities[i++ % activities.length]}`, {
+            type: "STREAMING",
+            url: "https://www.youtube.com/watch?v=DWcJFNfaw9c"
+        });
+
+    }, 5000);
+
+    // console.log('channels', Object.keys(client.channels));
+    // console.log('guilds', Object.keys(client.guilds));
+    // console.log();
+
+    if (client.channels.cache.get('795368946038472754'))
+        setInterval(async () => {
+            await watchIncomings(client.channels.cache.get('795368946038472754'));
+            // console.log('channels', client.channels);
+            //   console.log('guilds', client.guilds);
+        }, 60000);
 });
 
 
@@ -49,10 +64,14 @@ client.on('message', async (message) => {
 
     console.log(`O comando ${command} foi executado no servidor ${message.channel.guild.name} por ${message.author.username}`);
 
+    /*if(!current_players_data[server_id])
+        current_players_data[server_id] = [];
+
+    if(!past_players_data[server_id])
+        past_players_data[server_id] = [];*/
+
     try {
         switch (command) {
-            case 'watch-mails':
-                break;
             case 'watch':
                 let param_1 = args[0] ? args[0] : null;
                 let Command = client.commands.get(command);
@@ -76,7 +95,7 @@ client.on('message', async (message) => {
                 while (is_watching && active_servers[server_id]) {
                     current_players_data = await players_data.getFormattedData();
                     Command.execute(message, param_1, current_players_data, past_players_data);
-                    await wait(5000);
+                    await wait(120000);
                 }
 
                 message.channel.send('```diff\n+ Speed monitoring is over!```');
@@ -101,7 +120,7 @@ client.on('message', async (message) => {
     }
 });
 
-client.login(process.env.TOKEN);
+client.login("NzEzNzQ0MTY0MDgwMDU4NDk4.XskkDQ.YXFElMq_0CjVT5KpMl7xHGzfh9k");
 
 function wait(ms) {
     return new Promise((resolve, reject) => setTimeout(resolve, ms));
