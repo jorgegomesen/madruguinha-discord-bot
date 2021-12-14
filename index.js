@@ -4,6 +4,7 @@ const PlayersData = require('./data');
 const client = new Discord.Client();
 const prefix = '#';
 const watchIncomings = require('./commands/watch-incomings');
+require('.env');
 
 client.commands = new Discord.Collection();
 
@@ -120,7 +121,9 @@ client.on('message', async (message) => {
     }
 });
 
-client.login("NzEzNzQ0MTY0MDgwMDU4NDk4.XskkDQ.YXFElMq_0CjVT5KpMl7xHGzfh9k");
+(async function(){
+    await client.login(process.env.TOKEN);
+})();
 
 function wait(ms) {
     return new Promise((resolve, reject) => setTimeout(resolve, ms));
